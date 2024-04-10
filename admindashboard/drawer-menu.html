@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./drawer-menu.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="drawer-menu" data-animate-on-scroll>
+      <img class="add-icon" alt="" src="./public/add.svg" />
+
+      <button onclick="redirectToOtherPage()" class="create-exam-wrapper"  id="CreateExam">
+        <div class="create-exam">Create Exam</div>
+      </button>
+      <img class="refresh-icon" alt="" src="./public/refresh.svg" />
+
+      <button class="exam-history-wrapper" id="ExamHistory">
+        <div class="create-exam">Exam History</div>
+      </button>
+      <img class="done-fill-icon" alt="" src="./public/done-fill.svg" />
+
+      <button class="results-wrapper" id="Results">
+        <div class="create-exam">Results</div>
+      </button>
+      <img class="view-fill-icon" alt="" src="./public/view-fill.svg" />
+
+      <button class="view-questions-wrapper" id="ViewQuestions">
+        <div class="create-exam">View Questions</div>
+      </button>
+      <img class="edit-fill-icon" alt="" src="./public/edit-fill.svg" />
+
+      <button class="generate-questions-wrapper" id="GenerateQuestions">
+        <div class="create-exam">Generate Questions</div>
+      </button>
+      <img class="key-fill-icon" alt="" src="./public/key-fill.svg" />
+
+      <button class="change-password-wrapper" id="ChangePassword">
+        <div class="create-exam">Change Password</div>
+      </button>
+      <img
+        class="close-round-fill-icon"
+        alt=""
+        src="./public/close-round-fill.svg"
+      />
+
+      <button class="delete-exam-wrapper" id="DeleteExam">
+        <div class="create-exam">Delete Exam</div>
+      </button>
+      <button class="logout-wrapper" id="Logout">
+        <div class="logout">Logout</div>
+      </button>
+      <img
+        class="sign-out-squre-icon"
+        alt=""
+        src="./public/sign-out-squre.svg"
+      />
+    </div>
+
+    <script>
+      function redirectToOtherPage() {
+            // Replace 'other-page.html' with the actual URL of the page you want to redirect to
+            window.location.href = 'http://localhost/SecureExamProctor/admindashboard/AdminDashboard.html';
+        }
+      var scrollAnimElements = document.querySelectorAll("[data-animate-on-scroll]");
+      var observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              const targetElement = entry.target;
+              targetElement.classList.add("animate");
+              observer.unobserve(targetElement);
+            }
+          }
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+      
+      for (let i = 0; i < scrollAnimElements.length; i++) {
+        observer.observe(scrollAnimElements[i]);
+      }
+      
+
+      </script>
+  </body>
+</html>
